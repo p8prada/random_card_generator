@@ -23,26 +23,29 @@
 
                     <!--Timer-->
                     <div class="col-4 m-0 p-2 d-flex justify-content-center align-items-center fs-3">
-                        <i class="fa-regular fa-clock fs-5 mx-3"></i>
+                        <i id="time" class="fa-regular fa-clock fs-5 mx-3" style="display: none;"></i>
+                        <button type="button" id="btn_stop" class="btn btn-secondary m-1" style="display: none;">
+                            <h4 class="m-0">Stop</h4>
+                        </button>
                     </div>
                     
                     <!--Options-->
                     <div class="col-4 d-flex justify-content-end align-items-center">
                         
-                        <!--New random card-->
-                        <button type="button" class="btn btn-success m-1" onclick="genNewCard()">
+                        <!--Option 1: New random card-->
+                        <button type="button" id="opt1_btn" class="btn btn-success m-1">
                             <i class="fa-solid fa-repeat"></i>
                             <h4 class="m-0">New card</h4>
                         </button>
 
-                        <!--New random card every 10 seconds-->
-                        <button type="button" class="btn btn-success m-1">
+                        <!--Option 2: New random card every 10 seconds-->
+                        <button type="button" id="opt2_btn" class="btn btn-success m-1">
                             <i class="fa-solid fa-rotate"></i>
                             <h4 class="m-0">Every 10s</h4>
                         </button>
 
-                        <!--Re-size card-->
-                        <button type="button" class="btn btn-success m-1" data-bs-toggle="modal" data-bs-target="#myModal">
+                        <!--Option 3: Re-size card-->
+                        <button type="button" id="opt3_btn" class="btn btn-success m-1" data-bs-toggle="modal" data-bs-target="#myModal">
                             <i class="fa-solid fa-arrows-up-down-left-right"></i>
                             <h4 class="m-0">Re-size</h4>
                         </button>
@@ -60,24 +63,32 @@
 
                                     <!-- Modal body -->
                                     <div class="modal-body mx-3">
-                                        <div class="md-form mb-5">
+                                        <!-- Width -->
+                                        <div class="md-form mb-3">
                                             <i class="fa-solid fa-arrows-left-right mx-3"></i>
                                             <label>Width (px):</label>
-                                            <input required class="form-control text-center" type="Text" name="width" maxlength="3" size="5"/>
+                                            <input required id="card_width" class="form-control text-center" placeholder="226" type="Text" name="width" maxlength="3" size="5"/>
                                             
                                         </div>
-                                        <div class="md-form mb-5">
+                                        <!-- Height -->
+                                        <div class="md-form mb-3">
                                             <i class="fa-solid fa-arrows-up-down mx-3"></i>
                                             <label>Height (px):</label>
-                                            <input required class="form-control text-center" type="Text" name="width" maxlength="3" size="5"/>
+                                            <input required id="card_height" class="form-control text-center" placeholder="340" type="Text" name="width" maxlength="3" size="5"/>
                                         </div>
-
+                                        <!-- Checkbox default -->
+                                        <div>
+                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                            <label class="form-check-label" for="flexCheckDefault">
+                                                Default size
+                                            </label>
+                                        </div>
                                     </div>
 
                                     <!-- Modal footer -->
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button><br/>
-                                        <button type="button" class="btn btn-success" data-bs-dismiss="modal">Re-size</button>
+                                        <button type="button" id="btn_resize" class="btn btn-success" data-bs-dismiss="modal">Re-size</button>
                                     </div>
                                 </div>
                             </div>                            
@@ -93,18 +104,18 @@
             <div class="row row-col-1">
 
                 <!--Card-->
-                <div class="card animated animatedFadeInUp fadeInUp">
+                <div id="card" class="animated animatedFadeInUp fadeInUp" style="width: 226px; height: 340px;">
                     <!--Upper suit-->
-                    <div class="upperSuit mx-3 w-100">
-                        <h1>x</h1>
+                    <div class="upperSuit">
+                        <h1 class="mx-2 d-flex align-items-center">x</h1>
                     </div>
                     <!--Card number-->
                     <div class="cardNumber">
-                        <p id="number">X</p>
+                        <p id="number" class="d-flex justify-content-center align-items-center m-0">X</p>
                     </div>
                     <!--Lower suit-->
-                    <div class="lowerSuit mx-3 w-100">
-                        <h1>x</h1>
+                    <div class="lowerSuit">
+                        <h1 class="mx-2 d-flex align-items-center">x</h1>
                     </div>
                 </div>
 
