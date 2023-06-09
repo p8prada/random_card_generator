@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://kit.fontawesome.com/072e5df971.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" type="text/css" href="scr/style.css">
+        
+        <title>Random Card Generator</title>
+    </head>
+
+    <body>
+        <!--Navigation bar-->
+        <nav class="nav navbar-nav bg-light py-2 shadow-sm">
+            <div class="container-fluid">
+                <div class="row row-col-3">
+
+                    <!--Title-->
+                    <div class="col-4 m-0 p-2 d-flex justify-content-start align-items-center fs-3">
+                        <i class="fa-solid fa-dice mx-3"></i>
+                        <h4 class="m-0 fs-5">Random Card Generator</h4>
+                    </div>
+
+                    <!--Timer-->
+                    <div class="col-4 m-0 p-2 d-flex justify-content-center align-items-center fs-3">
+                        <i class="fa-regular fa-clock fs-5 mx-3"></i>
+                    </div>
+                    
+                    <!--Options-->
+                    <div class="col-4 d-flex justify-content-end align-items-center">
+                        
+                        <!--New random card-->
+                        <button type="button" class="btn btn-success m-1" onclick="genNewCard()">
+                            <i class="fa-solid fa-repeat"></i>
+                            <h4 class="m-0">New card</h4>
+                        </button>
+
+                        <!--New random card every 10 seconds-->
+                        <button type="button" class="btn btn-success m-1">
+                            <i class="fa-solid fa-rotate"></i>
+                            <h4 class="m-0">Every 10s</h4>
+                        </button>
+
+                        <!--Re-size card-->
+                        <button type="button" class="btn btn-success m-1" data-bs-toggle="modal" data-bs-target="#myModal">
+                            <i class="fa-solid fa-arrows-up-down-left-right"></i>
+                            <h4 class="m-0">Re-size</h4>
+                        </button>
+
+                        <!--Modal-->
+                        <div class="modal fade" id="myModal">
+                            <div class="modal-dialog modal-sm">
+                                <div class="modal-content">
+
+                                    <!-- Modal Header -->
+                                    <div class="modal-header text-center">
+                                    <h4 class="modal-title w-100">Re-size the card</h4>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                    </div>
+
+                                    <!-- Modal body -->
+                                    <div class="modal-body mx-3">
+                                        <div class="md-form mb-5">
+                                            <i class="fa-solid fa-arrows-left-right mx-3"></i>
+                                            <label>Width (px):</label>
+                                            <input required class="form-control text-center" type="Text" name="width" maxlength="3" size="5"/>
+                                            
+                                        </div>
+                                        <div class="md-form mb-5">
+                                            <i class="fa-solid fa-arrows-up-down mx-3"></i>
+                                            <label>Height (px):</label>
+                                            <input required class="form-control text-center" type="Text" name="width" maxlength="3" size="5"/>
+                                        </div>
+
+                                    </div>
+
+                                    <!-- Modal footer -->
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button><br/>
+                                        <button type="button" class="btn btn-success" data-bs-dismiss="modal">Re-size</button>
+                                    </div>
+                                </div>
+                            </div>                            
+                        </div>
+                        
+                    </div>
+
+                </div>
+            </div>
+        </nav>
+
+        <div class="container mt-5">
+            <div class="row row-col-1">
+
+                <!--Card-->
+                <div class="card animated animatedFadeInUp fadeInUp">
+                    <!--Upper suit-->
+                    <div class="upperSuit mx-3 w-100">
+                        <h1>x</h1>
+                    </div>
+                    <!--Card number-->
+                    <div class="cardNumber">
+                        <p id="number">X</p>
+                    </div>
+                    <!--Lower suit-->
+                    <div class="lowerSuit mx-3 w-100">
+                        <h1>x</h1>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <script src="scr/app.js"></script>
+    </body>
+</html>
