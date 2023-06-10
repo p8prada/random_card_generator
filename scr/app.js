@@ -11,41 +11,20 @@ function genNewCard(){
 
 // Generate the card suit
 function genSuit() {
-    let suit = Math.floor(Math.random() * 4) + 1;
-    if(suit === 1){
-        suit  = "♦";
-        return redCard(suit);
-    }
-    if(suit === 2){
-        suit  = "♥";
-        return redCard(suit);
-    }
-    if(suit === 3){
-        suit  = "♠";
-        return blackCard(suit);
-    }
-    if(suit === 4){
-        suit  = "♣";
-        return blackCard(suit);
+    const suites = ["♦","♥","♠","♣"]
+    let suit = Math.floor(Math.random() * 4);
+    if(suit == 0 || suit == 1){
+        return redCard(suites[suit]);
+    }else{
+        return blackCard(suites[suit]);
     }
 }
 
 // Generate the card number
 function genNumber(){
-    let num = Math.floor(Math.random() * 13) + 1;
-    if(num === 11){
-        num = "J";
-    }
-    if(num === 12){
-        num = "Q";
-    }
-    if(num === 13){
-        num = "K";
-    }
-    if(num === 1){
-        num = "A";
-    }
-    return  num;
+    const number = ["A","2","3","4","5","6","7","8","9","10","J","Q","K"]
+    let num = Math.floor(Math.random() * 13);
+    return  number[num];
 }
 
 // If the suit is Diamond or Heart, change the color of the card suit and number to "red"
