@@ -93,6 +93,7 @@ function stopTimer(){
     clearInterval(intervalId);
     document.getElementById("time").style.display = "none";
     document.getElementById("btn_stop").style.display = "none";
+    seconds = 10;
 }
 
 
